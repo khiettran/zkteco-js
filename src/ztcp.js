@@ -997,9 +997,10 @@ class ZTCP {
     async deleteUser(uid) {
         try {
             // Validate input parameter
-            if (parseInt(uid) <= 0 || parseInt(uid) > 3000) {
-                throw new Error('Invalid UID: must be between 1 and 3000');
-            }
+            // comment this check, because M4 support uid greater than 3000
+            // if (parseInt(uid) <= 0 || parseInt(uid) > 3000) {
+            //     throw new Error('Invalid UID: must be between 1 and 3000');
+            // }
 
             // Allocate and initialize the buffer
             const commandBuffer = Buffer.alloc(72);
@@ -1102,6 +1103,7 @@ class ZTCP {
     }
 
 }
+
 
 
 module.exports = ZTCP
