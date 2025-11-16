@@ -961,7 +961,7 @@ class ZTCP {
         try {
             // Validate input parameters
             if (
-                parseInt(uid) <= 0 || parseInt(uid) > 3000 ||
+                parseInt(uid) <= 0 ||
                 userid.length > 9 ||
                 name.length > 24 ||
                 password.length > 8 ||
@@ -1107,3 +1107,4 @@ class ZTCP {
 
 
 module.exports = ZTCP
+
