@@ -962,7 +962,7 @@ class ZTCP {
             // Validate input parameters
             if (
                 parseInt(uid) <= 0 ||
-                userid.length > 9 ||
+                userid.toString().length > 9 ||
                 name.length > 24 ||
                 password.length > 8 ||
                 cardno.toString().length > 10
@@ -980,7 +980,7 @@ class ZTCP {
             commandBuffer.write(name.padEnd(24, '\0'), 11, 24); // Ensure name is 24 bytes
             commandBuffer.writeUInt32LE(parseInt(cardno), 35);
             commandBuffer.writeUInt32LE(0, 40); // Placeholder or reserved field
-            commandBuffer.write(userid.padEnd(9, '\0'), 48, 9); // Ensure userid is 9 bytes
+            commandBuffer.write(userid.toString().padEnd(9, '\0'), 48, 9); // Ensure userid is 9 bytes
 
             // Send the command and return the result
             return await this.executeCmd(COMMANDS.CMD_USER_WRQ, commandBuffer);
@@ -1107,5 +1107,6 @@ class ZTCP {
 
 
 module.exports = ZTCP
+
 
 
