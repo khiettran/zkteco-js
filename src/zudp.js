@@ -610,6 +610,17 @@ class ZUDP {
         }
     }
 
+    async restart() {
+        try {
+            // Execute command to restart the device
+            return await this.executeCmd(COMMANDS.CMD_RESTART, Buffer.alloc(0));
+        } catch (err) {
+            // Log and propagate the error
+            console.error('Error restarting device:', err);
+            throw err; // Re-throw the error to allow it to be handled by the caller
+        }
+    }
+
 }
 
 
