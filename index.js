@@ -155,6 +155,13 @@ class ZktecoJs {
         )
     }
 
+    async restart() {
+        return await this.functionWrapper(
+            () => this.ztcp.restart(),
+            () => this.zudp.restart()
+        )
+    }
+
     async getProductTime() {
         return await this.functionWrapper(
             () => this.ztcp.getProductTime()

@@ -956,6 +956,19 @@ class ZTCP {
         }
     }
 
+    async restart() {
+        try {
+            // Execute the restart command
+            return await this.executeCmd(COMMANDS.CMD_RESTART, '');
+        } catch (err) {
+            // Log the error for debugging purposes
+            console.error('Error restarting device:', err);
+
+            // Re-throw the error to be handled by the caller
+            throw err;
+        }
+    }
+
 
     async setUser(uid, userid, name, password, role = 0, cardno = 0) {
         try {
